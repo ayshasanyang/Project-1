@@ -1,4 +1,3 @@
-// GLOBAL VARIABLES 
 var obj = {};
 // New break tag to be used wherever as needed
 var br = $("<br>");
@@ -47,7 +46,7 @@ $("body").on("click", ".view-on-map", addMarker)
 var displayParks = function(ST) {
     var stateCode = ST
     var apiKey = "hwP8B0f6Uwf5jW8g2PwCYkYhjnPHthmbcKhAlx4H"
-    var queryURL = "https://api.nps.gov/api/v1/parks?stateCode=" +stateCode + "&fields=images" + "&api_key=" + apiKey
+    var queryURL = "https://api.nps.gov/api/v1/parks?stateCode=" +stateCode  + "&api_key=" + apiKey
     // AJAX request to get info from NPS API
     $.ajax({
         url: queryURL,
@@ -62,16 +61,20 @@ var displayParks = function(ST) {
 }
 
 // GET WEATHER DATA FROM OpenWeatherMaps API
-
 function getWeather(lat, lon, targetDiv) {
     var weatherKey = "c1a8441894f24baaa155fb383073ff34";
     var weatherQuery = "https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=" + lat + "&lon=" + lon + "&appid=" + weatherKey;
-
+    
     $.ajax({
         url: weatherQuery,
         method: "GET"
     }).then(function(w) {
+        // var iconcode = w.weather[0].icon;
+        // var iconURL = "http://openweathermap.org/img/w/" + iconcode + ".png";
         $(targetDiv).prepend("<br><h5 class='text-center'> Current Temp (F) in " + w.name + " is:  <strong>" + w.main.temp + " F</strong>")
+        // $(iconURL).prepend($("<img>").attr("src", iconURL));
+       
+        // console.log(iconurl);
     })
 }
 
@@ -116,14 +119,12 @@ function createTable() {
             parkImage = park.images[0].url
             $(targetDiv).append(newTd).append("<img class='park-image' src='" + parkImage + "'>")
         } else {
-            $(targetDiv).append(newTd).append("<img class='park-image' src='/imgages/imageUnavailable.svg'>")
+            $(targetDiv).append(newTd).append("<img class='park-image' src='./images/Image-Unavailable.jpg'>")
         }
 
         $(newColumn).append(parkName)
-        
         $(newColumn2).append(parkDesignation)
         $(newColumn3).append(parkState)
-     
         $(newRow).append(newColumn).append(newColumn2).append(newColumn3)
     
         $(newRow).attr("data-target","#"+ parkCode) 
@@ -131,7 +132,7 @@ function createTable() {
         $(targetDiv).append("<div id='park-description'><h5>Description: </h5><p>" + parkDescription + "</p></div>")
         
         // Add 'Get Directions' button to the same targetDiv and have it open the directions in a new tab
-        $(newBtn).append("<a href='" + parkDirectionsURL + "' target='' class='directions button secondary large'>Get Directions</a>")
+        $(newBtn).append("<a href='" + parkDirectionsURL + "' target='_blank' class='directions button secondary large'>Get Directions</a>")
         $(targetDiv).append(newBtn)
         // add the parkCode as the targetDiv's ID
         $(targetDiv).attr("id", parkCode)
