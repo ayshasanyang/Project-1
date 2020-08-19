@@ -48,11 +48,13 @@ Concept Creation | Task Delegation
 Website Styling | GitHub push/pull/commits
 
 ---
+
 -Future Additions-
 1. Campground locator 
 2. Sunrise and sunset times
 3. Packing checklists based on activities 
 
+---
 
 -Contributions- 
 Made possible by: Team Boysenberries.
