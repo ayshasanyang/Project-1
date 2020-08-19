@@ -7,9 +7,11 @@
 
      <!-- jQuery -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <!-- Bootstrap CDN-->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+     <!-- get foundation navbar -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css"/>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0-rc.1/js/foundation.min.js"></script> 
 
      <!-- MapQuest CSS -->
      <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
@@ -18,20 +20,17 @@
      <!-- Our CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
-
-  <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-theme="original" >NEW YORK WEATHER</a>
 <body>
     <section id="landing" class="landing-section masthead">
-        <div class="container d-flex h-100 align-items-center">
-            <div class="mx-auto py-5 text-center">
-                <h1 class="text-white-50 text-white"> Park finder</h1>
+        <div class="container">
+            <div class=" text-center">
+                <h1 class="text-white-50 text-white"> Park Finder</h1>
                 <form>
                     <div id="input-container">
                         <div class=stateList>
                             <form id="simpleStateForm">
                                 <p id="selectStateText">Select a US state or territory:</p>
                                 <select name="stateSelect" id="stateSelection">
-                                   
                                     <option value="">None Selected</option>
                                     <option value="al" data-lat="32.806671" data-long="-86.791130" zoom="map.setZoomLevel(6)">Alabama</option>
                                     <option value="ak" data-lat="61.370716" data-long="-152.404419" zoom="map.setZoomLevel(3)">Alaska</option>
@@ -99,29 +98,29 @@
         </div>
         
         <div class="row">
-            <div class="col-1">
+            <div class="columns small-1">
             </div>
-            <div class="card card-default col 10" >
+            <div class="card card-default columns 10" style="width: 800px; margin:auto;">
                 <div class="card-body m-0" id="map-home">
-                    <div id="map" style="width: 100%; height: 500px; margin:auto;"></div>
+                    <div id="map" style="width: 800px; height: 500px; margin:auto;"></div>
                 </div>
             </div>
-            <div class="col-1">
+            <div class="columns small-1">
             </div>
         </div>
         <br>
         <br>
-        <div class="col-lg-12">
-                <div class="card card-default">
+        <div class="columns medium-8">
+                <div class="card ">
                     <div class="card-header text-center h3">
                         <p>Parks in :  <span id="location-query"></span></p>
                     </div>
                     <div class="card-body">
-                        <table class="table table-light table-hover">
-                            <thead class="thead-dark text-center">
-                                <th scope="col-5">Park Name</th>
-                                <th scope="col-4">Designation</th>
-                                <th scope="col-3">State</th>
+                        <table  class="table hover">
+                            <thead class="thead">
+                                <th scope="small-6 columns">Park Name</th>
+                                <th scope="small-4 columns">Designation</th>
+                                <th scope="small-3 columns">State</th>
                             </thead>
                             <tbody id="table-body">
             
@@ -132,18 +131,12 @@
             </div>
         <br>
     </section>
-<!--footer-->
-​
-<!-- 
-  fixed. < div id = "footer" >
-  </style> -->
-  
   <div class="footer">
     <p>Designed by Isatou Sanyang, Gunnar Stoltz, Steph Tomlin, Isabell Danell and Joyce Johnson </p>
   </div>
 
       <!-- National Park Service API -->
-      <script src="https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=q3aVXF4M4Hq6z0fi3Ithx6UFbnKa4aRIn45OIpKo"></script>
+      <script src="https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=hwP8B0f6Uwf5jW8g2PwCYkYhjnPHthmbcKhAlx4H"></script>
       <!-- MapQuest JS -->
       <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
       <!-- Our JS -->

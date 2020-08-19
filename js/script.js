@@ -1,33 +1,7 @@
-
-!function(d,s,id){
-    var js,fjs=d.getElementsByTagName(s)[0];
-    if(!d.getElementById(id)){js=d.createElement(s);
-        js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
-        fjs.parentNode.insertBefore(js,fjs);
-    }}(document,'script','weatherwidget-io-js');
-
-
-
-
-
-
-// GLOBAL VARIABLES -------------------------------------------------------------------------------------------------------------
-// Temporary object that will fill with NPS data (reference using parks.whatever in functions)
+// GLOBAL VARIABLES 
 var obj = {};
 // New break tag to be used wherever as needed
 var br = $("<br>");
-
-
-
-
-
-
-
-
-
-
-
-
 
 // "MAP IT" BUTTON CREATIONS/FUNCTIONALITY 
 function addMapBtn(park, targetDiv, parkName) {
@@ -42,9 +16,9 @@ function addMapBtn(park, targetDiv, parkName) {
         parkLat = firstSplit[0].replace("lat:", "")
         parkLong = firstSplit[1].replace("long:", "")
         // Use jQuery to create a button for the user to view and specific park on the map
-        button.attr("data-lat", parkLat).attr("data-long", parkLong).attr("data-name", parkName).attr("class", "btn btn-success btn-lg view-on-map").attr("role", "button");
+        // button.attr("data-lat", parkLat).attr("data-long", parkLong).attr("data-name", parkName).attr("class", "button success large view-on-map").attr("role", "button");
         // Add text to the button
-        button.text("Map it")
+        // button.text("Map it")
         // Appends and button to the target div        
         $(targetDiv).append(button).append(br)
     }      
@@ -69,8 +43,6 @@ var addMarker = function(e) {
 // add marker with View on Map button is clicked
 $("body").on("click", ".view-on-map", addMarker) 
 
-
-
 // Function to run AJAX call to NPS.gov and gather the park data
 var displayParks = function(ST) {
     var stateCode = ST
@@ -89,8 +61,6 @@ var displayParks = function(ST) {
     })
 }
 
-
-
 // GET WEATHER DATA FROM OpenWeatherMaps API
 
 function getWeather(lat, lon, targetDiv) {
@@ -105,19 +75,17 @@ function getWeather(lat, lon, targetDiv) {
     })
 }
 
-
-
 // Function to populate the table beneath the map with park data for the selected state
 function createTable() {
     for (var i = 0; i < obj.parks.length; i++) {
         // variables to create new HTML elements in the DOM
-        var newRow = $("<tr class='text-center bg-info'>");
+        var newRow = $("<tr class='text-center' style='background-color: #16bccd; text-align: center;'>");
         var newTd = $("<td>")
-        var targetDiv = $("<div class='collapse'>")
-        var newBtn = $("<button role='button' class='btn btn-info btn-lg'>")
-        var newColumn = $("<th scope='col'>")
-        var newColumn2 = $("<th scope='col'>")
-        var newColumn3 = $("<th scope='col'>")
+        var targetDiv = $("<div class ='row medium-collapse large-uncollapse'>")
+        var newBtn = $("<button role='button'>")
+        var newColumn = $("<th 'small-6 columns' >")
+        var newColumn2 = $("<th 'small-4 columns'>")
+        var newColumn3 = $("<th  'small-3 columns'>")
       
         // variables to define the park data pulled from temporary object "obj"
         var park = obj.parks[i]
@@ -126,6 +94,7 @@ function createTable() {
         var parkDirectionsURL = park.directionsUrl
         console.log(parkDirectionsURL);
         var parkDesignation = park.designation
+
         var parkName = park.fullName
         var parkCode = park.parkCode
         var parkState = park.states
@@ -140,7 +109,7 @@ function createTable() {
             console.log("Weather information for this park is currently unavailable")
         }
         // Create a new table row for each park in the API response array
-        newRow.addClass("clickable").attr("data-toggle", "collapse");
+        newRow.addClass("clickable").attr("data-toggle", "medium-collapse large-uncollapse");
         // add new row and table data to the targetDiv and append to the div with the table-body ID
         $("#table-body").append(newRow).append(newTd).append(targetDiv)
         if (park.images.length > 0 ) {
@@ -152,8 +121,6 @@ function createTable() {
 
         $(newColumn).append(parkName)
         
-        
-        
         $(newColumn2).append(parkDesignation)
         $(newColumn3).append(parkState)
      
@@ -164,7 +131,7 @@ function createTable() {
         $(targetDiv).append("<div id='park-description'><h5>Description: </h5><p>" + parkDescription + "</p></div>")
         
         // Add 'Get Directions' button to the same targetDiv and have it open the directions in a new tab
-        $(newBtn).append("<a href='" + parkDirectionsURL + "' target='' class='directions'>Get Directions</a>")
+        $(newBtn).append("<a href='" + parkDirectionsURL + "' target='' class='directions button secondary large'>Get Directions</a>")
         $(targetDiv).append(newBtn)
         // add the parkCode as the targetDiv's ID
         $(targetDiv).attr("id", parkCode)

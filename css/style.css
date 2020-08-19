@@ -6,7 +6,7 @@ body{
 }
 
 /* BODY AND TABLE STUFF */
-.masthead {
+ .masthead {
   font-family: 'Arvo', serif;
   position: relative;
   width: 100%;
@@ -15,15 +15,36 @@ body{
   padding: 15 rem;
   font-family: 'Arvo', serif;
   color: black;
+} 
+
+#stateSelection {
+  width: 200px;
 }
 
+#submitBtn {
+  background-color: #808a81;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
-
+.thead {
+  background-color: #0A0A0A;
+  color: aliceblue;
+  
+}
 h1 {
   font-family: "Louize Display", Garamond, serif;
-  font-size: 80px;
+  font-size: 100px;
   font-style: normal;
   font-weight: 600px;
+  margin-top: 40px;
   letter-spacing: normal;
   line-height: 60px;
   text-transform: none;
@@ -70,8 +91,9 @@ hr {
 }
 
 #selectStateText {
-  font-size: 14pt;
+  font-size: 30pt;
   font-weight: bold;
+  color: #fff;
 }
 
 .view-on-map {
@@ -112,4 +134,5 @@ hr {
   background-color:rgb(99, 178, 228);
   color: white;
   text-align: center;
+  margin-left: 30px;
 }
