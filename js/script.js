@@ -69,12 +69,12 @@ function getWeather(lat, lon, targetDiv) {
         url: weatherQuery,
         method: "GET"
     }).then(function(w) {
-        // var iconcode = w.weather[0].icon;
-        // var iconURL = "http://openweathermap.org/img/w/" + iconcode + ".png";
+         var iconcode = w.weather[0].icon;
+         var iconURL = "http://openweathermap.org/img/w/" + iconcode + ".png";
+        
+        $(targetDiv).prepend($("<img>").attr("src", iconURL));
         $(targetDiv).prepend("<br><h5 class='text-center'> Current Temp (F) in " + w.name + " is:  <strong>" + w.main.temp + " F</strong>")
-        // $(iconURL).prepend($("<img>").attr("src", iconURL));
-       
-        // console.log(iconurl);
+
     })
 }
 
