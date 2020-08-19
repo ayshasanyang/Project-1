@@ -46,4 +46,4 @@ Made possible by: Team Boysenberries.
 - Isabell Danell
 - Joyce Johnson
 
-![Weather or Not](./images/park-finder.gif)
+![Weather or Not](./images/map-finder.gif)
