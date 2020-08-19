@@ -40,22 +40,6 @@ National Park Service / Mapquest |  Forecast7 Weather Widget | Foundation  | Goo
 
 ---
 
--Challenges-
-The Highs | The Lows
---------- | --------
-Teamwork  | API Decision & Retrieval
-Concept Creation | Task Delegation
-Website Styling | GitHub push/pull/commits
-
----
-
--Future Additions-
-1. Campground locator 
-2. Sunrise and sunset times
-3. Packing checklists based on activities 
-
----
-
 -Contributions- 
 Made possible by: Team Boysenberries.
 
