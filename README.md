@@ -20,7 +20,7 @@ When users arrive on ***_Weather or Not_*** website, they will use the dropdown 
 -Tools Used-
 API Sources|Developer Tools|CSS Framework|Font Source
 ---------------|------------|-----------|------------
-National Park Service Mapquest | Forecast7 Weather Widget | Foundation  | Google Fonts
+National Park Service / Mapquest |  Forecast7 Weather Widget | Foundation  | Google Fonts
 
 
 -Links-
