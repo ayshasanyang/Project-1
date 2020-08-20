@@ -189,4 +189,4 @@ $("#submitBtn").on("click", function(event) {
 
 
 // On initial load, center the map Minnesota's lat and long
-    loadMap(41.26093905,-81.57116722)
+    loadMap(45.694454,-93.900192)
